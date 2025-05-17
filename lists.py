@@ -2,7 +2,7 @@
 
 myList = ["Kagetera", "John", "Peter", "Alex", "Claude"]
 
-myList.sort()
+myList.sort(reverse = True)
 
 # Adding appending more than 1 element to list at the same time
 myList.extend(["IDUKUNDATWESE", "Uok", "Danny"])
