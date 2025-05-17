@@ -6,4 +6,4 @@ for name, price in fruits.items():
     print(f"{name} : {price}")
     totalCost += price * 2
 
-print(f"The Total Cost is {totalCost} RWF")
+print(f"The Total Cost for 2 kg is {totalCost} RWF")
