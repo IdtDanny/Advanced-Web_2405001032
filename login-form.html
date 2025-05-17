@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login form</title>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            // By default, submit button is disabled
+            document.querySelector('#submit').disabled = true;
+            document.querySelector('#password').onkeyup = () => {
+                if (document.querySelector('#password').value.length > 0) {
+                    document.querySelector('#submit').disabled = false;
+
+                } else {
+                    document.querySelector('#submit').disabled = true;
+                }
+                
+            }
+
+            document.querySelector('form').onsubmit = () => {
+               const username =  document.querySelector('#username').value;
+               const password =  document.querySelector('#password').value;
+            //    console.log(task);
+               const user_li = document.createElement('Li');
+               const pass_li = document.createElement('Li');
+
+               user_li.innerHTML = username;
+               pass_li.innerHTML = password;
+
+               document.querySelector('#tasks').append(user_li);
+               document.querySelector('#tasks').append(pass_li);
+
+
+               document.querySelector('#username').value = '';
+               document.querySelector('#password').value = '';
+
+               document.querySelector('#submit').disabled = true;
+
+               // stop form from submitting
+
+               return false;
+            }
+        });
+    </script>
+</head>
+<style>
+    form {
+        width: 200px;
+    }
+    input, button {
+        width: 100%;
+        padding: 8px;
+        margin: 10px auto;
+    }
+    /* button {
+        background-color: aquamarine;
+        border-radius: 5px;
+        border: none;
+        font-size: 14px;
+    } */
+</style>
+<body>
+    <span id="tasks">
+
+    </span>
+    <h1>Login form</h1>
+    <form>
+        <input id="username" placeholder="Username" type="text">
+        <input id="password" placeholder="Password" type="password">
+        <button type="submit" id="submit">Login</button>
+    </form>
+</body>
+
+</html>
