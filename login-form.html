@@ -5,6 +5,9 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function(){
+
+            document.querySelector('#tasks').hidden = true;
+
             // By default, submit button is disabled
             document.querySelector('#submit').disabled = true;
             document.querySelector('#password').onkeyup = () => {
@@ -18,17 +21,13 @@
             }
 
             document.querySelector('form').onsubmit = () => {
+                document.querySelector('#tasks').hidden = false;
+
                const username =  document.querySelector('#username').value;
                const password =  document.querySelector('#password').value;
-            //    console.log(task);
-               const user_li = document.createElement('Li');
-               const pass_li = document.createElement('Li');
 
-               user_li.innerHTML = username;
-               pass_li.innerHTML = password;
-
-               document.querySelector('#tasks').append(user_li);
-               document.querySelector('#tasks').append(pass_li);
+               document.querySelector('#user').innerHTML = username;
+                document.querySelector('#pass').innerHTML = password;
 
 
                document.querySelector('#username').value = '';
@@ -36,34 +35,46 @@
 
                document.querySelector('#submit').disabled = true;
 
-               // stop form from submitting
-
                return false;
             }
         });
     </script>
 </head>
 <style>
-    form {
+    * {
+        margin: 0 auto;
+    }
+    h1 {
+        text-align: center;
+        padding: 20px;
+    }
+    .task {
+        background-color: antiquewhite;
         width: 200px;
+        padding: 10px;
+    }
+    form {
+        width: 250px;
     }
     input, button {
         width: 100%;
         padding: 8px;
         margin: 10px auto;
     }
-    /* button {
+    button {
         background-color: aquamarine;
         border-radius: 5px;
-        border: none;
-        font-size: 14px;
-    } */
+        border: 1px solid aquamarine;
+        cursor: pointer;
+    }
 </style>
 <body>
-    <span id="tasks">
-
-    </span>
     <h1>Login form</h1>
+
+    <div class="task" id="tasks">
+        Username: <span id="user"></span><br><br>
+        Password: <span id="pass"></span>
+    </div>
     <form>
         <input id="username" placeholder="Username" type="text">
         <input id="password" placeholder="Password" type="password">
